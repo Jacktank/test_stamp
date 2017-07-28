@@ -16,7 +16,7 @@ RCOMPILE_FLAGS = -D NDEBUG
 # Additional debug-specific flags
 DCOMPILE_FLAGS = -D DEBUG
 # Add additional include paths
-INCLUDES = -I $(SRC_PATH) `pkg-config --cflags opencv320`
+INCLUDES = -I $(SRC_PATH) 
 # General linker settings
 LINK_FLAGS = 
 # Additional release-specific linker settings
@@ -52,7 +52,7 @@ INSTALL_DATA = $(INSTALL) -m 644
 # Append pkg-config specific libraries if need be
 ifneq ($(LIBS),)
 	COMPILE_FLAGS += $(shell pkg-config --cflags $(LIBS))
-	LINK_FLAGS += $(shell pkg-config --libs $(LIBS))
+	LINK_FLAGS += $(shell pkg-config --libs $(LIBS)) -lpthread
 endif
 
 # Verbose option, to output compile and link commands
